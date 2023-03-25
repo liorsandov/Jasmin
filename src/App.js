@@ -6,8 +6,10 @@ function App() {
   const [buttonA, setButtonA] = useState(false);
   const [buttonB, setButtonB] = useState(false);
   const [buttonHover, setButtonHover] = useState(false);
-  const [buttonPointerEnter, setButtonPointerEnter] = useState(false);
+  const [buttonPointerEnterA, setButtonPointerEnterA] = useState(false);
   const [buttonPointerEnterB, setButtonPointerEnterB] = useState(false);
+  const [buttonPointerEnterC, setButtonPointerEnterC] = useState(false);
+  const [buttonPointerEnterD, setButtonPointerEnterD] = useState(false);
   const [superB, setSuperB] = useState(false);
 
   function vibrate(ms) {
@@ -70,7 +72,7 @@ function App() {
         setSuperB(false)
         return
       };
-      if (buttonPointerEnter && buttonPointerEnterB) {
+      if (buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD) {
         setSuperB(false)
         return
       };
@@ -97,41 +99,45 @@ function App() {
         {/* {buttonPointerEnterB ? <>onPointerEnterB</> : <></>} */}
         <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', gap: '5rem', width: '90%' }}>
 
-          <button onClick={() => setStart(true)}>START</button>
-          <div>
+          {!start ? (<button style={{fontSize: '1.2rem'}} onClick={() => setStart(true)}>START</button>) : <></>}
+          {/* <div>
             <button className='purple-button' onClick={() => setButtonA(!buttonA)}>button A</button>
             <button className='purple-button' onClick={() => setButtonB(!buttonB)}>button B</button>
-          </div>
+          </div> */}
 
           {/* <button className='purple-button' onClick={() => interval()}>startInterval</button> */}
           {/* <button className='purple-button' onClick={() => vibrate(1000)}>1</button> */}
           {/* <button className='purple-button' onClick={() => vibrateP()}>2</button> */}
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button
-              className='purple-button'
-              onPointerEnter={() => setButtonPointerEnter(true)}
-              onPointerLeave={() => setButtonPointerEnter(false)}>
-            </button>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button
-              className='purple-button' style={{ marginLeft: '0' }}
-              onPointerEnter={() => setButtonPointerEnter(true)}
-              onPointerLeave={() => setButtonPointerEnter(false)}>
-            </button>
-            <button
-              className='purple-button' style={{ marginRight: '0' }}
-              onPointerEnter={() => {setButtonPointerEnterB(true)}}
-              onPointerLeave={() => setButtonPointerEnterB(false)}>
-            </button>
-          </div>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <button
-              className='purple-button'
-              onPointerEnter={() => setButtonPointerEnterB(true)}
-              onPointerLeave={() => setButtonPointerEnterB(false)}>
-            </button>
-          </div>
+          {start ? (
+            <div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <button
+                  className='purple-button'
+                  onPointerEnter={() => setButtonPointerEnterA(true)}
+                  onPointerLeave={() => setButtonPointerEnterA(false)}>
+                </button>
+              </div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                {buttonPointerEnterA ? (
+                  <button
+                    className='purple-button' style={{ marginLeft: '0' }}
+                    onPointerEnter={() => setButtonPointerEnterB(true)}
+                    onPointerLeave={() => setButtonPointerEnterB(false)}>
+                  </button>) : <div></div>}
+                {buttonPointerEnterB ? (<button
+                  className='purple-button' style={{ marginRight: '0' }}
+                  onPointerEnter={() => { setButtonPointerEnterC(true) }}
+                  onPointerLeave={() => setButtonPointerEnterC(false)}>
+                </button>) : (<div></div>)}
+              </div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                {buttonPointerEnterC ? (<button
+                  className='purple-button'
+                  onPointerEnter={() => setButtonPointerEnterD(true)}
+                  onPointerLeave={() => setButtonPointerEnterD(false)}>
+                </button>) : (<div></div>)}
+              </div>
+            </div>) : <></>}
           {/* <button className='purple-button' onMouseOver={() => setButtonHover(!buttonHover)}></button> */}
           {/* <button className='purple-button' onPointerEnter={() => setButtonB(!buttonB)}>onPointerEnter - button B</button> */}
           {/* <button className='purple-button' onClick={() => clean()}>Clear Interval</button> */}
