@@ -1,7 +1,10 @@
 body {
-  -webkit-user-select: none; /* Safari */
-  -ms-user-select: none; /* IE 10 and IE 11 */
-  user-select: none; /* Standard syntax */
+  -webkit-user-select: none;
+  /* Safari */
+  -ms-user-select: none;
+  /* IE 10 and IE 11 */
+  user-select: none;
+  /* Standard syntax */
 }
 
 .App {
@@ -12,10 +15,11 @@ body {
   margin: auto;
   /* margin-bottom: 1rem; */
   background-color: purple;
-  border-radius: 2rem;
+  border-radius: 15rem;
   border: none;
-  height: 3rem;
-  width: 50%;
+  height: 6rem;
+  width: 6rem;
+  box-shadow: #80008073 0px 5px 8px, #800080 -5px 3px 11px, #800080 0px 4px 6px, #800080 -4px 1px 13px, #800080 0px -3px 5px;
 }
 
 .App-logo {
@@ -42,6 +46,7 @@ body {
 .App-header.flash {
   background-color: #00cb9f;
 }
+
 .App-header-container {
   border-bottom: solid #fff 1px;
   width: 800px;

@@ -66,7 +66,7 @@ function App() {
 
   useEffect(() => {
     if (start) {
-      if (buttonA && buttonB) {
+      if ((buttonA && buttonB) | (setButtonPointerEnter && setButtonPointerEnterB)) {
         setSuperB(false)
         return
       };
@@ -87,36 +87,52 @@ function App() {
     <div className="App">
       {/* <MainAppBar view={view} setView={setView} /> */}
       <header className={`App-header ${superB ? 'flash' : ''}`}>
-        {renderELM()}
-        {buttonHover ? <>onMouseOver</> : <></>}
-        {buttonPointerEnter ? <>onPointerEnter</> : <></>}
-        {buttonPointerEnterB ? <>onPointerEnterB</> : <></>}
-        <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', width: '50%', gap: '1rem' }}>
-          <button onClick={() => setStart(true)}>START</button>
-          <button className='purple-button' onClick={() => setButtonA(!buttonA)}>button A</button>
-          <button className='purple-button' onClick={() => setButtonB(!buttonB)}>button B</button>
+        {/* {renderELM()} */}
+        {/* {buttonHover ? <>onMouseOver</> : <></>} */}
+        {/* {buttonPointerEnter ? <>onPointerEnter</> : <></>} */}
+        {/* {buttonPointerEnterB ? <>onPointerEnterB</> : <></>} */}
+        <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', gap: '5rem', width: '90%' }}>
 
-          <button className='purple-button' onPointerDown={() => setButtonA(!buttonA)}>onPointerDown</button>
+          <button onClick={() => setStart(true)}>START</button>
+          <div>
+            <button className='purple-button' onClick={() => setButtonA(!buttonA)}>button A</button>
+            <button className='purple-button' onClick={() => setButtonB(!buttonB)}>button B</button>
+          </div>
+
           {/* <button className='purple-button' onClick={() => interval()}>startInterval</button> */}
           {/* <button className='purple-button' onClick={() => vibrate(1000)}>1</button> */}
           {/* <button className='purple-button' onClick={() => vibrateP()}>2</button> */}
-          onPointerEnter/Leave
-          <button
-            className='purple-button'
-            onPointerEnter={() => setButtonPointerEnter(true)}
-            onPointerLeave={() => setButtonPointerEnter(false)}>
-          </button>
-          <button
-            className='purple-button'
-            onPointerEnter={() => setButtonPointerEnterB(true)}
-            onPointerLeave={() => setButtonPointerEnterB(false)}>
-          </button>
-
-          <button className='purple-button' onMouseOver={() => setButtonHover(!buttonHover)}></button>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button
+              className='purple-button'
+              onPointerEnter={() => setButtonPointerEnter(true)}
+              onPointerLeave={() => setButtonPointerEnter(false)}>
+            </button>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button
+              className='purple-button' style={{ marginLeft: '0' }}
+              onPointerEnter={() => setButtonPointerEnter(true)}
+              onPointerLeave={() => setButtonPointerEnter(false)}>
+            </button>
+            <button
+              className='purple-button' style={{ marginRight: '0' }}
+              onPointerEnter={() => {setButtonPointerEnterB(true)}}
+              onPointerLeave={() => setButtonPointerEnterB(false)}>
+            </button>
+          </div>
+          <div style={{ display: 'flex', gap: '1rem' }}>
+            <button
+              className='purple-button'
+              onPointerEnter={() => setButtonPointerEnterB(true)}
+              onPointerLeave={() => setButtonPointerEnterB(false)}>
+            </button>
+          </div>
+          {/* <button className='purple-button' onMouseOver={() => setButtonHover(!buttonHover)}></button> */}
           {/* <button className='purple-button' onPointerEnter={() => setButtonB(!buttonB)}>onPointerEnter - button B</button> */}
           {/* <button className='purple-button' onClick={() => clean()}>Clear Interval</button> */}
           {/* <button className='purple-button' onClick={() => myStopFunction()}>myStopFunction</button> */}
-          {seconds} seconds have elapsed since mounting.
+          {/* {seconds} seconds have elapsed since mounting. */}
         </div>
       </header>
     </div>
