@@ -7,6 +7,7 @@ function App() {
   const [buttonB, setButtonB] = useState(false);
   const [buttonHover, setButtonHover] = useState(false);
   const [buttonPointerEnter, setButtonPointerEnter] = useState(false);
+  const [buttonPointerEnterB, setButtonPointerEnterB] = useState(false);
   const [superB, setSuperB] = useState(false);
 
   function vibrate(ms) {
@@ -89,8 +90,9 @@ function App() {
         {renderELM()}
         {buttonHover ? <>onMouseOver</> : <></>}
         {buttonPointerEnter ? <>onPointerEnter</> : <></>}
+        {buttonPointerEnterB ? <>onPointerEnterB</> : <></>}
         <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', width: '50%', gap: '1rem' }}>
-          <button onClick={()=>setStart(true)}>START</button>
+          <button onClick={() => setStart(true)}>START</button>
           <button className='purple-button' onClick={() => setButtonA(!buttonA)}>button A</button>
           <button className='purple-button' onClick={() => setButtonB(!buttonB)}>button B</button>
 
@@ -99,7 +101,17 @@ function App() {
           {/* <button className='purple-button' onClick={() => vibrate(1000)}>1</button> */}
           {/* <button className='purple-button' onClick={() => vibrateP()}>2</button> */}
           onPointerEnter/Leave
-          <button className='purple-button' onPointerEnter={() => setButtonPointerEnter(true)} onPointerLeave={()=>setButtonPointerEnter(false)}></button>
+          <button
+            className='purple-button'
+            onPointerEnter={() => setButtonPointerEnter(true)}
+            onPointerLeave={() => setButtonPointerEnter(false)}>
+          </button>
+          <button
+            className='purple-button'
+            onPointerEnter={() => setButtonPointerEnterB(true)}
+            onPointerLeave={() => setButtonPointerEnterB(false)}>
+          </button>
+
           <button className='purple-button' onMouseOver={() => setButtonHover(!buttonHover)}></button>
           {/* <button className='purple-button' onPointerEnter={() => setButtonB(!buttonB)}>onPointerEnter - button B</button> */}
           {/* <button className='purple-button' onClick={() => clean()}>Clear Interval</button> */}
