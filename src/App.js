@@ -66,7 +66,11 @@ function App() {
 
   useEffect(() => {
     if (start) {
-      if ((buttonA && buttonB) | (setButtonPointerEnter && setButtonPointerEnterB)) {
+      if (buttonA && buttonB) {
+        setSuperB(false)
+        return
+      };
+      if (buttonPointerEnter && buttonPointerEnterB) {
         setSuperB(false)
         return
       };
