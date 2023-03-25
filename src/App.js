@@ -98,7 +98,8 @@ function App() {
           {/* <button className='purple-button' onClick={() => interval()}>startInterval</button> */}
           {/* <button className='purple-button' onClick={() => vibrate(1000)}>1</button> */}
           {/* <button className='purple-button' onClick={() => vibrateP()}>2</button> */}
-          <button className='purple-button' onPointerEnter={() => setButtonPointerEnter(!buttonPointerEnter)}>onPointerEnter</button>
+          onPointerEnter/Leave
+          <button className='purple-button' onPointerEnter={() => setButtonPointerEnter(true)} onPointerLeave={()=>setButtonPointerEnter(false)}></button>
           <button className='purple-button' onMouseOver={() => setButtonHover(!buttonHover)}></button>
           {/* <button className='purple-button' onPointerEnter={() => setButtonB(!buttonB)}>onPointerEnter - button B</button> */}
           {/* <button className='purple-button' onClick={() => clean()}>Clear Interval</button> */}
