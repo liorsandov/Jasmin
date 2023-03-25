@@ -12,8 +12,10 @@ function App() {
   function vibrate(ms) {
     navigator.vibrate(ms);
   }
-
   useEffect(() => {
+    if(buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD){
+      setStart(false)
+    }
     if (start) {
       if (buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD) {
         setSuperB(false)
