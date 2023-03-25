@@ -13,13 +13,18 @@ function App() {
     navigator.vibrate(ms);
   }
   useEffect(() => {
-    if(buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD){
+    if (buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD) {
       setStart(false)
+      setButtonPointerEnterA(false)
+      setButtonPointerEnterB(false)
+      setButtonPointerEnterC(false)
+      setButtonPointerEnterD(false)
+      return;
     }
     if (start) {
       if (buttonPointerEnterA && buttonPointerEnterB && buttonPointerEnterC && buttonPointerEnterD) {
         setSuperB(false)
-        return
+        return;
       };
       const interval = setInterval(() => {
         setSuperB(!superB)
@@ -38,8 +43,9 @@ function App() {
     <div className="App">
       <header className={`App-header ${superB ? 'flash' : ''}`}>
         <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', gap: '5rem', width: '90%' }}>
-          {!start ? (<button style={{ fontSize: '1.2rem' }} onClick={() => setStart(true)}>START</button>) : <></>}
-          {start ? (
+          {start === false ? (
+            <button style={{ fontSize: '1.2rem' }} onClick={() => setStart(true)}>START</button>) : <></>}
+          {start === true ? (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '7rem' }}>
               <div style={{ display: 'flex', gap: '1rem' }}>
                 <button
