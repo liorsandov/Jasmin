@@ -72,6 +72,7 @@ function App() {
       const interval = setInterval(() => {
         setSeconds(seconds => seconds + 1);
         setSuperB(!superB)
+        vibrate(1000)
       }, 1000);
       return () => {
         clearInterval(interval);
