@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
 function App() {
-  // const [view, setView] = useState('Home-Page');
+  const [view, setView] = useState(false);
   // const [userData, setUserData] = useState({ userName: '', Pass: '' });
 
   // const mainSwitch = () => {
@@ -30,12 +30,15 @@ function App() {
     <div className="App">
       {/* <MainAppBar view={view} setView={setView} /> */}
       <header className="App-header">
+        {
+          view ? <>AMAZING ! </> : <></>
+        }
         <div style={{ display: 'flex', margin: 'auto', flexDirection: 'column', width: '50%', gap: '1rem' }}>
           <button className='purple-button' onClick={() => vibrate(1000)}>1</button>
           <button className='purple-button' onClick={() => vibrateP()}>2</button>
           <button className='purple-button' onPointerDown={() => vibrateP()}>3</button>
           <button className='purple-button' onPointerEnter={() => vibrateP()}>4</button>
-          <button className='purple-button'>5</button>
+          <button className='purple-button' onClick={() => setView(!view)}>5</button>
           <button className='purple-button'>6</button>
         </div>
       </header>
